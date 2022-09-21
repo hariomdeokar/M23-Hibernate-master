@@ -4,15 +4,14 @@ import javax.persistence.EntityManager;
 
 import com.cg.entities.Customer;
 
-public class CustomerdaoImpl implements Customerdao
+public class CustomerDaoImpl implements CustomerDao
 {
 	 private EntityManager em ;
 	    
-	    public CustomerdaoImpl() {
+	    public CustomerDaoImpl() {
 	    	super();
 	    	em=JPAUtil.getEntityManager();
 	    }
-
 	@Override
 	public Customer addCustomer(Customer customer) {
 		em.persist(customer);
@@ -26,29 +25,24 @@ public class CustomerdaoImpl implements Customerdao
 	}
 
 	@Override
-	public Customer searchCustomer(long cust_id) {
-		Customer customer = em.find(Customer.class, cust_id);
+	public Customer searchCustomer(long id) {
+		Customer customer=em.find(Customer.class,id);
 		return customer;
 	}
 
 	@Override
-	public boolean deleteCustomer(long cust_id) {
-		em.remove(cust_id);
-		return false;
-	}
-
-	@Override
-	public void commitTransaction() {
-		em.getTransaction().commit();
-		
+	public Customer deleteCustomer(long id) {
+		em.remove(id);
+		return null;
 	}
 
 	@Override
 	public void beginTransaction() {
 		em.getTransaction().begin();
-		
 	}
 
-	
-
+	@Override
+	public void commitTransaction() {
+		em.getTransaction().commit();
+	}
 }

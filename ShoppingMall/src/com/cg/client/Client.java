@@ -1,21 +1,26 @@
 package com.cg.client;
 
-//import com.cg.entities.Admin;
 import com.cg.entities.Customer;
-//import com.cg.entities.Employee;
-import com.cg.entities.Orders;
-//import com.cg.entities.Shop;
-//import com.cg.entities.User;
-import com.cg.service.Customerservice;
-import com.cg.service.CustomerserviceImpl;
-//import com.cg.service.EmployeeService;
-//import com.cg.service.EmployeeServiceImpl;
-import com.cg.service.Orderservice;
-import com.cg.service.OrderserviceImpl;
-//import com.cg.service.ShopService;
-//import com.cg.service.ShopServiceImpl;
-//import com.cg.service.UserService;
-//import com.cg.service.UserServiceImpl;
+import com.cg.entities.Order;
+import com.cg.service.CustomerService;
+import com.cg.service.CustomerServiceImpl;
+import com.cg.service.OrderService;
+import com.cg.service.OrderServiceImpl;
+
+import com.cg.entities.Admin;
+
+import com.cg.entities.Employee;
+
+import com.cg.entities.Shop;
+import com.cg.entities.User;
+
+import com.cg.service.EmployeeService;
+import com.cg.service.EmployeeServiceImpl;
+
+import com.cg.service.ShopService;
+import com.cg.service.ShopServiceImpl;
+import com.cg.service.UserService;
+import com.cg.service.UserServiceImpl;
 
 public class Client 
 {
@@ -26,7 +31,7 @@ public class Client
 	{
 		
 		
-		/*User user = new User();
+		User user = new User();
 		UserService userService = new UserServiceImpl();
 		user.setUser_Id(116);
 		user.setName("hariom");
@@ -63,27 +68,29 @@ public class Client
 		employee.setDesignation("Manager");
 		
 	    employeeService.updateEmployee(employee);
-		shopService.updateShop(shop);*/
+		shopService.updateShop(shop);
 		
 		
 		
-		Customer customer = new Customer();
-		Customerservice customerservice=new CustomerserviceImpl();
-		customer.setCust_id(10);
-		customer.setName("gaurav");
-		customer.setEmail("abc@gmail.com");
-		customer.setPhone("23773800");
+        System.out.println("");
 		
+		Customer customer= new Customer();
+		CustomerService customerService = new CustomerServiceImpl();
+		customer.setCust_id(65);
+		customer.setCust_name("Gaurav Patil");
+		customer.setPhone("9826713405");
+		customer.setEmail("ajay988@gmail.com");
 		
-		Orders order =new Orders();
-		Orderservice orderservice =new OrderserviceImpl();
-		order.setOrder_id(1);
-		order.setDateOfPurchase(null);
-		order.setTotal(100);
-		order.setPaymentMode("cash");
+		Order order = new Order();
+		OrderService orderService = new OrderServiceImpl();
+		order.setOrder_id(7985623);
+		order.setTotal(10500.02f);
+		order.setLdt(null);
+		order.setPaymentMode("Online");
 		
-		orderservice.addOrders(order);
-		customerservice.addCustomer(customer);
-		System.out.println("Data Is Inserted");
+		orderService.updateOrder(order);
+		customerService.updateCustomer(customer);
+		
+		System.out.println("Data Is Updated");
 }
 }
